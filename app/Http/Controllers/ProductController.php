@@ -2,15 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-   public static function product(){
-    return view('front.product');
+   public static function product()
+   {
+      return view('front.product');
    }
 
-   public static function productIn(){
-    return view('front.productIn');
+   public function productIn($id, $slug)
+   {
+      $product = Product::findOrFail($id);
+
+      $locale = app()->getLocale();
+
+      $currentLocaleSlug = $product->{'slug_' . $locale};
+
+
+      if ($slug !== $currentLocaleSlug) {
+         return redirect()->route('productPage', [
+            'id' => $product->id,
+            'slug' => $currentLocaleSlug
+         ]);
+      }
+
+      return view('front.productIn', compact('productIn'));
    }
 }

@@ -4,18 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Slider extends Model
+class Tecno2 extends Model
 {
-    protected $table = 'slider';
+    protected $table = 'tecno2';
 
     protected $fillable = [
-        'bgImage',
+        'poster',
+        'link',
         'title_uz',
         'title_ru',
         'title_en',
         'text_uz',
         'text_ru',
         'text_en',
-        'link'
     ];
 }

@@ -4,18 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Slider extends Model
+class AboutFour extends Model
 {
-    protected $table = 'slider';
+        protected $table = 'about_four';
 
     protected $fillable = [
-        'bgImage',
+        'img',
         'title_uz',
         'title_ru',
         'title_en',
         'text_uz',
         'text_ru',
         'text_en',
-        'link'
     ];
 }

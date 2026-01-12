@@ -27,5 +27,6 @@ Route::group(
         Route::get('/media', [MediaController::class, 'media'])->name('mediaPage');
         Route::get('/partner', [PartnerController::class, 'partner'])->name('partnerPage');
         Route::get('/contact', [ContactController::class, 'contact'])->name('contactPage');
+        Route::get('/product/{$id}/{$slug}', [ProductController::class, 'productIn'])->name('productInPage');
     }
 );

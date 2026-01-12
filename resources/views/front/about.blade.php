@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@php
+    $locale = app()->getLocale();
+@endphp
 @section('content')
     <!-- hero section  -->
     <section class="about_hero"
@@ -17,25 +20,10 @@
                 ">
         <div class="container">
             <div class="about_hero_in">
-                <h2>О нас</h2>
-                <h3>Немного о нашей компании</h3>
+                <h2>{{ $aboutOne->{'title_' . $locale} }}</h2>
+                <h3>{{ $aboutOne->{'title2_' . $locale} }}</h3>
                 <p>
-                    Sed ut perspiciatis, unde omnis iste natus error sit
-                    voluptatem accusantium doloremque laudantium, totam
-                    rem aperiam eaque ipsa, quae ab illo inventore
-                    veritatis et quasi architecto beatae vitae dicta
-                    sunt, explicabo. Nemo enim ipsam voluptatem, quia
-                    voluptas sit, aspernatur aut odit aut fugit, sed
-                    quia consequuntur magni dolores eos, qui ratione
-                    voluptatem sequi nesciunt, neque porro quisquam est,
-                    qui dolorem ipsum, quia dolor sit, amet,
-                    consectetur, adipisci velit, sed quia non
-                    numquam eius modi tempora incidunt, ut labore et
-                    dolore magnam aliquam quaerat voluptatem. Ut enim ad
-                    minima veniam, quis nostrum exercitationem ullam
-                    corporis suscipit laboriosam, nisi ut aliquid ex ea
-                    commodi consequatur? Quis autem vel eum iure
-                    reprehenderit.
+                    {!! $aboutOne->{'text_' . $locale} !!}
                 </p>
             </div>
         </div>
@@ -45,47 +33,14 @@
     <section>
         <div class="container">
             <div class="about2">
-                <h2>Lorem ipsum dolor sit amet, consectetur</h2>
+                <h2>{{ $aboutTwo->{'title_' . $locale} }}</h2>
                 <p>
-                    Sed ut perspiciatis, unde omnis iste natus error sit
-                    voluptatem accusantium doloremque laudantium, totam
-                    rem aperiam eaque ipsa, quae ab illo inventore
-                    veritatis et quasi architecto beatae vitae dicta
-                    sunt, explicabo. Nemo enim ipsam voluptatem, quia
-                    voluptas sit, aspernatur aut odit aut fugit, sed
-                    quia consequuntur magni dolores eos, qui ratione
-                    voluptatem sequi nesciunt, neque porro quisquam est,
-                    qui dolorem ipsum, quia dolor sit, amet,
-                    consectetur, adipisci velit, sed quia non
-                    numquam eius modi tempora incidunt, ut labore et
-                    dolore magnam aliquam quaerat voluptatem. Ut enim ad
-                    minima veniam, quis nostrum exercitationem ullam
-                    corporis suscipit laboriosam, nisi ut aliquid ex ea
-                    commodi consequatur? Quis autem vel eum iure
-                    reprehenderit, qui in ea voluptate velit esse, quam
-                    nihil molestiae consequatur, vel illum,
-                    qui dolorem eum fugiat, quo voluptas nulla pariatur?
-                    At vero eos et accusamus et iusto odio dignissimos
-                    ducimus, qui blanditiis praesentium voluptatum
-                    deleniti atque corrupti, quos dolores et quas
-                    molestias excepturi sint, obcaecati cupiditate non
-                    provident, similique sunt in culpa, qui officia
-                    deserunt mollitia animi, id est laborum et dolorum
-                    fuga. Et harum quidem rerum facilis est et expedita
-                    distinctio. Nam libero tempore, cum soluta nobis est
-                    eligendi optio, cumque nihil impedit, quo minus id,
-                    quod maxime placeat, facere possimus, omnis voluptas
-                    assumenda est, omnis dolor repellendus. Temporibus
-                    autem quibusdam et aut officiis debitis aut rerum
-                    necessitatibus saepe eveniet, ut et voluptates
-                    repudiandae sint et molestiae non recusandae. Itaque
-                    earum rerum hic tenetur a sapiente delectus, ut aut
-                    reiciendis voluptatibus maiores alias consequatur
-                    aut perferendis doloribus asperiores repellat.
+
+                    {!! $aboutTwo->{'text_' . $locale} !!}
                 </p>
                 <div>
-                    <img src="{{ asset('img/car1.jpg') }}" alt="" />
-                    <img src="{{ asset('img/car2.jpg') }}" alt="" />
+                    <img src="{{ asset('storage/' . $aboutTwo->image1) }}" alt="" />
+                    <img src="{{ asset('storage/' . $aboutTwo->image2) }}" alt="" />
                 </div>
             </div>
         </div>
@@ -103,23 +58,9 @@
                 ">
         <div class="container">
             <div class="about3_in">
-                <h2>Lorem ipsum dolor sit amet</h2>
+                <h2>{{ $aboutThree->{'title_' . $locale} }}</h2>
                 <p>
-                    Sed ut perspiciatis, unde omnis iste natus error sit
-                    voluptatem accusantium doloremque laudantium, totam
-                    rem aperiam eaque ipsa, quae ab illo inventore
-                    veritatis et quasi architecto beatae vitae dicta
-                    sunt, explicabo. Nemo enim ipsam voluptatem, quia
-                    voluptas sit, aspernatur aut odit aut fugit, sed
-                    quia consequuntur magni dolores eos, qui ratione
-                    voluptatem sequi nesciunt, neque porro quisquam est,
-                    qui dolorem ipsum, quia dolor sit, amet,
-                    consectetur, adipisci velit, sed quia non
-                    numquam eius modi tempora incidunt, ut labore et
-                    dolore magnam aliquam quaerat voluptatem. Ut enim ad
-                    minima veniam, quis nostrum exercitationem ullam
-                    corporis suscipit laboriosam, nisi ut aliquid ex ea
-                    commodi consequatur.
+                    {!! $aboutThree->{'text_' . $locale} !!}
                 </p>
             </div>
         </div>
@@ -129,28 +70,12 @@
         <div class="container">
             <div class="about8In">
                 <div>
-                    <img src="{{ asset('img/about8.jpg') }}" alt="" />
+                    <img src="{{ asset('storage/' . $aboutFour->img) }}" alt="" />
                 </div>
                 <div class="about8div">
-                    <h2>Ut enim ad minim veniam</h2>
+                    <h2>{{ $aboutFour->{'title_' . $locale} }}</h2>
                     <p>
-                        Quis autem vel eum iure
-                        reprehenderit, qui in ea voluptate velit esse,
-                        quam nihil molestiae consequatur, vel illum,
-                        qui dolorem eum fugiat, quo voluptas nulla
-                        pariatur? At vero eos et accusamus et iusto odio
-                        dignissimos ducimus, qui blanditiis praesentium
-                        voluptatum deleniti atque corrupti, quos dolores
-                        et quas molestias excepturi sint,
-                        obcaecati cupiditate non provident,
-                        similique sunt in culpa, qui officia deserunt
-                        mollitia animi, id est laborum et dolorum fuga.
-                        Et harum quidem rerum facilis est et expedita
-                        distinctio. Nam libero tempore, cum soluta nobis
-                        est eligendi optio, cumque nihil impedit, quo
-                        minus id, quod maxime placeat, facere possimus,
-                        omnis voluptas assumenda est, omnis dolor
-                        repellendus.
+                        {!! $aboutFour->{'text_' . $locale} !!}
                     </p>
                 </div>
             </div>
@@ -158,5 +83,5 @@
     </section>
 
     <!-- CONST all last section -->
-    <x-form/>
+    <x-form />
 @endsection

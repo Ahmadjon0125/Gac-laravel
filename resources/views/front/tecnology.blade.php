@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@php
+    $locale = app()->getLocale();
+@endphp
+
 @section('content')
     <!-- hero section  -->
     <section class="tecnoHero"
@@ -11,22 +15,13 @@
             <div class="tecnoIn_hero">
                 <h2>Технологии</h2>
                 <div class="tecnoIcons">
-                    <div>
-                        <img src="{{ asset('img/tecno1.svg') }}" alt="" />
-                        <h3>Безопасность</h3>
-                    </div>
-                    <div>
-                        <img src="{{ asset('img/tecno2.svg') }}" alt="" />
-                        <h3>Двигатель и батарея</h3>
-                    </div>
-                    <div>
-                        <img src="{{ asset('img/tecno3.svg') }}" alt="" />
-                        <h3>Интеллектуальная система</h3>
-                    </div>
-                    <div>
-                        <img src="{{ asset('img/tecno4.svg') }}" alt="" />
-                        <h3>Передовые технологии</h3>
-                    </div>
+                    @foreach ($tecno1 as $tecno)
+                        <div>
+                            <img src="{{ asset('storage/' . $tecno->icon) }}" alt="" />
+                            <h3>{{ $tecno->{'title_' . $locale} }}</h3>
+                        </div>
+                    @endforeach
+
                 </div>
             </div>
         </div>
@@ -36,30 +31,13 @@
     <section class="tecno3">
         <div class="container">
             <div class="tecno3In">
-                <h2>Безопасность</h2>
+                <h2>{{ $tecno2->{'title_' . $locale} }}</h2>
                 <p>
-                    Sed ut perspiciatis, unde omnis iste natus error sit
-                    voluptatem accusantium doloremque laudantium, totam
-                    rem aperiam eaque ipsa, quae ab illo inventore
-                    veritatis et quasi architecto beatae vitae dicta
-                    sunt, explicabo. Nemo enim ipsam voluptatem, quia
-                    voluptas sit, aspernatur aut odit aut fugit, sed
-                    quia consequuntur magni dolores eos, qui ratione
-                    voluptatem sequi nesciunt, neque porro quisquam est,
-                    qui dolorem ipsum, quia dolor sit, amet,
-                    consectetur, adipisci velit, sed quia non
-                    numquam eius modi tempora incidunt, ut labore et
-                    dolore magnam aliquam quaerat voluptatem. Ut enim ad
-                    minima veniam, quis nostrum exercitationem ullam
-                    corporis suscipit laboriosam, nisi ut aliquid ex ea
-                    commodi consequatur? Quis autem vel eum iure
-                    reprehenderit, qui in ea voluptate velit esse, quam
-                    nihil molestiae consequatur, vel illum,
-                    qui dolorem eum fugiat, quo voluptas nulla pariatur.
+                    {!! $tecno2->{'text_' . $locale} !!}
                 </p>
 
-                <a href="https://www.youtube.com/watch?v=4FUnXaq_VWk" data-fancybox>
-                    <img alt="Video poster" width="100%" height="100%" src="{{ asset('img/poster.jpg') }}" />
+                <a href="{{ $tecno2->link }}" data-fancybox>
+                    <img alt="Video poster" width="100%" height="100%" src="{{ asset('storage/' . $tecno2->poster) }}" />
                     <img src="{{ asset('img/play.png') }}" class="tecnoplay" alt="" />
                 </a>
             </div>
