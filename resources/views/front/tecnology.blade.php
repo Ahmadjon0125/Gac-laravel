@@ -52,29 +52,21 @@
                 ">
         <div class="container">
             <div class="tecno4In">
-                <h2>Двигатель и батарея</h2>
+                <h2>{{ $tecno3->{'title_' . $locale} }}</h2>
                 <p>
-                    Nemo enim ipsam voluptatem, quia voluptas sit,
-                    aspernatur aut odit aut fugit, sed quia consequuntur
-                    magni dolores eos, qui ratione voluptatem sequi
-                    nesciunt, neque porro quisquam est, qui dolorem
-                    ipsum, quia dolor sit, amet, consectetur,
-                    adipisci velit, sed quia non numquam eius
-                    modi tempora incidunt, ut labore et dolore
-                    magnam aliquam quaerat voluptatem. Ut enim ad
-                    minima veniam.
+                    {!! $tecno3->{'text_' . $locale} !!}
                 </p>
                 <ul>
                     <li>
-                        <h3><span>300</span>км/ч</h3>
+                        <h3><span>{{ $tecno3->speed }}</span>км/ч</h3>
                         <p>Макс. скорость</p>
                     </li>
                     <li>
-                        <h3><span>1.9</span>сек</h3>
+                        <h3><span>{{ $tecno3->time }}</span>сек</h3>
                         <p>Ускорение 0-100 (многодвигательный)</p>
                     </li>
                     <li>
-                        <h3><span>4.9</span>сек</h3>
+                        <h3><span>{{ $tecno3->timeOne }}</span>сек</h3>
                         <p>Ускорение 0-100 (один двигатель)</p>
                     </li>
                 </ul>
@@ -91,14 +83,12 @@
             <div>
                 <h2>Высококлассная электроплатформа</h2>
                 <ul class="tecno5List">
-                    <li>
-                        <h3>Уровень суперкара</h3>
-                        <p>Технология электропривода</p>
-                    </li>
-                    <li>
-                        <h3>Уровень трека</h3>
-                        <p>Технология Заднего привода</p>
-                    </li>
+                    @foreach ($tecno4 as $tecno)
+                        <li>
+                            <h3>{{ $tecno->{'title_' . $locale} }}</h3>
+                            <p>{!! $tecno->{'text_' . $locale} !!}</p>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
@@ -106,38 +96,19 @@
     <!-- 5-section -->
     <section class="tecno6">
         <div class="container">
-            <h2>Интеллектуальная система</h2>
+            <h2>{{ $tecno5->{'title_' . $locale} }}</h2>
             <p>
-                Nemo enim ipsam voluptatem, quia voluptas sit,
-                aspernatur aut odit aut fugit, sed quia consequuntur
-                magni dolores eos, qui ratione voluptatem sequi
-                nesciunt, neque porro quisquam est, qui dolorem ipsum,
-                quia dolor sit, amet, consectetur, adipisci velit,
-                sed quia non numquam eius modi tempora incidunt, ut
-                labore et dolore magnam aliquam quaerat voluptatem. Ut
-                enim ad minima veniam.
+                {!! $tecno5->{'text_' . $locale} !!}
             </p>
         </div>
         <div class="swiper mySwiper2">
             <div class="swiper-wrapper swiper-wrap2">
-                <div class="swiper-slide swiper-slide2">
-                    <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                </div>
-                <div class="swiper-slide swiper-slide2">
-                    <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                </div>
-                <div class="swiper-slide swiper-slide2">
-                    <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                </div>
-                <div class="swiper-slide swiper-slide2">
-                    <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-                </div>
-                <div class="swiper-slide swiper-slide2">
-                    <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-                </div>
-                <div class="swiper-slide swiper-slide2">
-                    <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-                </div>
+                @foreach ($tecno5->images as $image)
+                    <div class="swiper-slide swiper-slide2">
+                        <img src="{{ asset('storage/' . $image) }}" />
+                    </div>
+                @endforeach
+
             </div>
             <div class="swiper-pagination"></div>
         </div>
@@ -147,25 +118,13 @@
         <div class="container">
             <div class="tecno7In">
                 <div>
-                    <h2>Передовые технологии</h2>
+                    <h2>{{ $tecno6->{'title_' . $locale} }}</h2>
                     <p>
-                        • Nemo enim ipsam voluptatem, quia voluptas sit,
-                        aspernatur aut odit aut fugit, sed quia
-                        consequuntur magni dolores eos
-                        <br /> <br>
-                        • Qui ratione voluptatem sequi nesciunt, neque
-                        porro quisquam est, qui dolorem ipsum,
-                        quia dolor sit
-                        <br /> <br>
-                        • Amet, consectetur, adipisci velit, sed quia
-                        non numquam eius modi tempora incidunt
-                        <br /> <br>
-                        • Ut labore et dolore magnam aliquam quaerat
-                        voluptatem. Ut enim ad minima veniam.
+                        {!! $tecno6->{'text_' . $locale} !!}
                     </p>
                 </div>
                 <div>
-                    <img src="{{ asset('img/aboutBg.jpg') }}" alt="" />
+                    <img src="{{ asset('storage/' . $tecno6->image) }}" alt="" />
                 </div>
             </div>
         </div>
