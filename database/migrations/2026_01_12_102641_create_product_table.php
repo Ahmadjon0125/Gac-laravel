@@ -39,6 +39,7 @@ return new class extends Migration
             $table->string('slug_uz');
             $table->string('slug_ru');
             $table->string('slug_en');
+            $table->string('category');
             $table->timestamps();
         });
     }

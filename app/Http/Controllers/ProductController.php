@@ -9,7 +9,8 @@ class ProductController extends Controller
 {
    public static function product()
    {
-      return view('front.product');
+      $products = Product::all();
+      return view('front.product', compact('products'));
    }
 
    public function productIn($id, $slug)
@@ -28,6 +29,6 @@ class ProductController extends Controller
          ]);
       }
 
-      return view('front.productIn', compact('productIn'));
+      return view('front.productIn', compact('product'));
    }
 }

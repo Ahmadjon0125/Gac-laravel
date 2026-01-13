@@ -3,7 +3,9 @@
 namespace App\Filament\Resources\Products\Schemas;
 
 use AmidEsfahani\FilamentTinyEditor\TinyEditor;
+use App\Models\Product;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Utilities\Set;
@@ -35,6 +37,11 @@ class ProductForm
                     TextInput::make('slug_ru')->required(),
                     TextInput::make('slug_en')->required(),
                 ])->columnSpanFull(),
+                Select::make('category')
+                    ->label('Kategoriya')
+                    ->options(Product::getCategoryOptions()) 
+                    ->required()
+                    ->native(false),
                 TinyEditor::make('mainText_uz')->columnSpanFull()->required(),
                 TinyEditor::make('mainText_ru')->columnSpanFull()->required(),
                 TinyEditor::make('mainText_en')->columnSpanFull()->required(),

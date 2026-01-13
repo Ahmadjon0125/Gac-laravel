@@ -23,7 +23,7 @@ class Product extends Model
         'text_ru',
         'text_en',
         'slides1',
-        'slides2', 
+        'slides2',
         'lastTitle_uz',
         'lastTitle_ru',
         'lastTitle_en',
@@ -34,11 +34,21 @@ class Product extends Model
         'slug_uz',
         'slug_ru',
         'slug_en',
+        'category'
     ];
 
     protected $casts = [
         // JSON ustunlari migratsiyada JSON turi sifatida belgilangan bo'lishi shart
-        'slides1' => 'array', 
-        'slides2' => 'array',
+        'slides1' => 'collection',
+        'slides2' => 'collection',
     ];
+
+    public static function getCategoryOptions(): array
+    {
+        return [
+            'suv'   => 'SUV',
+            'sedan' => 'SEDAN',
+            'mpv'   => 'MPV',
+        ];
+    }
 }

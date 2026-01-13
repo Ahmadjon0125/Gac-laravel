@@ -377,7 +377,10 @@ a {
 .model-list {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
 }
 
 .model-list div img {

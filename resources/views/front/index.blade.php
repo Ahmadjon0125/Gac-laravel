@@ -33,14 +33,14 @@
                             <a href="{{ $slider->link }}" class="btnMain">Подробнее</a>
                         </div>
                     </div>
-                    @endforeach
+                @endforeach
 
-        </div>
-        <div class="swiper-controls">
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-next"></div>
-        </div>
+            </div>
+            <div class="swiper-controls">
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+            </div>
         </div>
     </section>
     <!-- Модельный ряд section  -->
@@ -64,51 +64,65 @@
                 <div class="tabs-content-wrapper">
                     <div class="tab-content active" data-tab-content="all">
                         <div class="model-list">
-                            <div>
-                                <img src="./img/car1.png" alt="" />
-                                <h3>GS8</h3>
-                                <a href="" class="btnMain">Подробнее</a>
-                            </div>
-                            <div>
-                                <img src="./img/car2.png" alt="" />
-                                <h3>EMPOW</h3>
-                                <a href="" class="btnMain">Подробнее</a>
-                            </div>
-                            <div>
-                                <img src="./img/car3.png" alt="" />
-                                <h3>EMKOO</h3>
-                                <a href="" class="btnMain">Подробнее</a>
-                            </div>
+                            @foreach ($products as $product)
+                                <div>
+                                    <img src="{{ asset('storage/' . $product->mainImg) }}" alt="" />
+                                    <h3>{{ $product->{'mainTitle_' . $locale} }}</h3>
+                                    <a href="{{ route('productInPage', [
+                                        'id' => $product->id,
+                                        'slug' => $product->{'slug_' . $locale},
+                                    ]) }}"
+                                        class="btnMain">Подробнее</a>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
 
                     <div class="tab-content" data-tab-content="suv">
                         <div class="model-list">
-                            <div>
-                                <img src="./img/car1.png" alt="" />
-                                <h3>GS8</h3>
-                                <a href="" class="btnMain">Подробнее</a>
-                            </div>
+                            @foreach ($products->where('category', 'suv') as $product)
+                                <div>
+                                    <img src="{{ asset('storage/' . $product->mainImg) }}" alt="" />
+                                    <h3>{{ $product->{'mainTitle_' . $locale} }}</h3>
+                                    <a href="{{ route('productInPage', [
+                                        'id' => $product->id,
+                                        'slug' => $product->{'slug_' . $locale},
+                                    ]) }}"
+                                        class="btnMain">Подробнее</a>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
 
                     <div class="tab-content" data-tab-content="sedan">
                         <div class="model-list">
-                            <div>
-                                <img src="./img/car2.png" alt="" />
-                                <h3>EMPOW</h3>
-                                <a href="" class="btnMain">Подробнее</a>
-                            </div>
+                            @foreach ($products->where('category', 'sedan') as $product)
+                                <div>
+                                    <img src="{{ asset('storage/' . $product->mainImg) }}" alt="" />
+                                    <h3>{{ $product->{'mainTitle_' . $locale} }}</h3>
+                                    <a href="{{ route('productInPage', [
+                                        'id' => $product->id,
+                                        'slug' => $product->{'slug_' . $locale},
+                                    ]) }}"
+                                        class="btnMain">Подробнее</a>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
 
                     <div class="tab-content" data-tab-content="mpv">
                         <div class="model-list">
-                            <div>
-                                <img src="./img/car3.png" alt="" />
-                                <h3>EMKOO</h3>
-                                <a href="" class="btnMain">Подробнее</a>
-                            </div>
+                            @foreach ($products->where('category', 'mpv') as $product)
+                                <div>
+                                    <img src="{{ asset('storage/' . $product->mainImg) }}" alt="" />
+                                    <h3>{{ $product->{'mainTitle_' . $locale} }}</h3>
+                                    <a href="{{ route('productInPage', [
+                                        'id' => $product->id,
+                                        'slug' => $product->{'slug_' . $locale},
+                                    ]) }}"
+                                        class="btnMain">Подробнее</a>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
