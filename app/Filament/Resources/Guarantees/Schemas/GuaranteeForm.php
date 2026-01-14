@@ -2,7 +2,9 @@
 
 namespace App\Filament\Resources\Guarantees\Schemas;
 
+use AmidEsfahani\FilamentTinyEditor\TinyEditor;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Set;
@@ -15,51 +17,50 @@ class GuaranteeForm
     {
         return $schema
             ->components([
-                TextInput::make('title_uz')->required(),
-                TextInput::make('title_ru')->required(),
-                TextInput::make('title_en')->required(),
-
-
-                FileUpload::make('file_path')
-                    ->label('Hujjatni yuklang')
-                    ->disk('public')
-                    ->storeFileNamesIn('original_filename')
-                    ->required()
-                    ->live()
-                    ->afterStateUpdated(function ($state, Set $set) {
-                        // ⚠️ faqat haqiqiy yuklangan fayl bo‘lsa
-                        if ($state instanceof TemporaryUploadedFile) {
-
-                            // 📄 Fayl turi
-                            $extension = $state->getClientOriginalExtension();
-                            $set('file_type', strtoupper($extension));
-
-                            // 📦 Fayl hajmi
-                            $bytes = $state->getSize();
-
-                            if ($bytes >= 1048576) {
-                                $size = number_format($bytes / 1048576, 1) . ' MB';
-                            } else {
-                                $size = number_format($bytes / 1024, 0) . ' KB';
-                            }
-
-                            $set('file_size', $size);
-                        }
-                    }),
-
-                Section::make('Fayl maʼlumotlari (Avtomatik to‘ldiriladi)')
+                Section::make('Umumiy maʼlumotlar')
                     ->schema([
-                        TextInput::make('file_type')
-                            ->label('Fayl turi (masalan: PDF)')
-                            ->disabled()
-                             ->dehydrated(),
+                     
+                        TinyEditor::make('text_uz')->required()->label('Tavsif matni'),
+                        TinyEditor::make('text_ru')->required()->label('Tavsif matni'),
+                        TinyEditor::make('text_en')->required()->label('Tavsif matni'),
+                    ]),
 
-                        TextInput::make('file_size')
-                            ->label('Fayl hajmi (masalan: 120 KB)')
-                            ->disabled()
-                             ->dehydrated(),
-                    ])
-                    ->columns(2),
+                Section::make('Kafolat fayllari')
+                    ->schema([
+                        Repeater::make('files')
+                            ->label('Fayllar ro‘yxati')
+                            ->itemLabel(fn(array $state): ?string => $state['original_name'] ?? 'Yangi fayl')
+                            ->schema([
+                                FileUpload::make('file_path')
+                                    ->label('Hujjatni tanlang')
+                                    ->disk('public')
+                                    ->directory('guarantees')
+                                    ->required()
+                                    ->live()
+                                    ->afterStateUpdated(function ($state, Set $set) {
+                                        if ($state instanceof TemporaryUploadedFile) {
+                                            // Fayl ma'lumotlarini avtomatik to'ldirish
+                                            $set('original_name', $state->getClientOriginalName());
+                                            $ext = strtoupper($state->getClientOriginalExtension());
+                                            $set('file_type', $ext);
+
+                                            $bytes = $state->getSize();
+                                            $size = ($bytes >= 1048576)
+                                                ? number_format($bytes / 1048576, 1) . ' MB'
+                                                : number_format($bytes / 1024, 0) . ' KB';
+                                            $set('file_size', $size);
+                                        }
+                                    }),
+
+                                TextInput::make('original_name')->label('Asl nomi')->disabled()->dehydrated(),
+                                TextInput::make('file_type')->label('Turi')->disabled()->dehydrated(),
+                                TextInput::make('file_size')->label('Hajmi')->disabled()->dehydrated(),
+                            ])
+                            ->columnSpanFull()
+                            ->createItemButtonLabel('Fayl qo‘shish')
+                            ->reorderable(true) // Fayllar o'rnini surib o'zgartirish
+                           
+                    ]),
             ]);
     }
 }

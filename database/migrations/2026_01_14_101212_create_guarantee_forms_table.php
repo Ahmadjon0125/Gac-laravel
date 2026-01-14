@@ -11,12 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('guarantee', function (Blueprint $table) {
+        Schema::create('guarantee_forms', function (Blueprint $table) {
             $table->id();
             $table->longText('text_uz');
             $table->longText('text_ru');
             $table->longText('text_en');
-            $table->json('files')->nullable();
+            $table->string('company_name');
+            $table->string('region');
+            $table->string('address');
+            $table->string('employee_count');
+            $table->string('full_name');
+            $table->string('phone');
+            $table->text('additional_info')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('guarantee');
+        Schema::dropIfExists('guarantee_forms');
     }
 };

@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Guarantee extends Model
 {
-    protected $table ='guarantee';
+    protected $table = 'guarantee';
 
     protected $fillable = [
-        'title_uz', 
-        'title_ru', 
-        'title_en', 
-        'file_path', 
-        'file_type', 
-        'file_size',
+        'text_uz',
+        'text_ru',
+        'text_en',
+        'files',
     ];
+
+    protected $casts = ['files' => 'array'];
 }

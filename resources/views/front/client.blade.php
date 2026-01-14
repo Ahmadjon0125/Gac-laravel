@@ -23,25 +23,16 @@
             <div class="client1">
                 <h2>Гарантия</h2>
                 <p>
-                    Nemo enim ipsam voluptatem, quia voluptas sit,
-                    aspernatur aut odit aut fugit, sed quia consequuntur
-                    magni dolores eos, qui ratione voluptatem sequi
-                    nesciunt, neque porro quisquam est, qui dolorem
-                    ipsum, quia dolor sit, amet, consectetur,
-                    adipisci velit, sed quia non numquam eius
-                    modi tempora incidunt, ut labore et dolore
-                    magnam aliquam quaerat voluptatem. Ut enim ad
-                    minima veniam, quis nostrum exercitationem ullam
-                    corporis suscipit laboriosam, nisi ut aliquid ex ea
-                    commodi consequatur.
+                    {!! $guarantees->{'text_' . $locale} !!}
                 </p>
                 <ul class="client1list">
-                    @foreach ($guarantees as $guarantee)
+                    @foreach ($guarantees->files ?? [] as $guarantee)
                         <li>
-                            <h3>{{ $guarantee->file_path }}</h3>
-                            <div><span>{{ $guarantee->file_type }}</span>, <span>{{ $guarantee->file_size }}</span></div>
-                            <a href="{{ asset('storage/' . $guarantee->file_path) }}" target="_blank"
-                                download="{{ 'storage/' . $guarantee->file_path }}">
+                            <h3>{{ $guarantee['original_name'] }}</h3>
+                            <div><span>{{ $guarantee['file_type'] }}</span>, <span>{{ $guarantee['file_size'] }}</span>
+                            </div>
+                            <a href="{{ asset('storage/' . $guarantee['file_path']) }}" target="_blank"
+                                download="{{ 'storage/' . $guarantee['file_path'] }}">
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -71,7 +62,8 @@
                     voluptatem sequi nesciunt, neque porro quisquam est,
                     qui dolorem ipsum.
                 </p>
-                <form action="" method="post" class="client2Form">
+                <form action="{{ route('clientFormPage') }}" method="post" class="client2Form">
+                    @csrf
                     <ul>
                         <li>
                             <label for="Название компании">Название компании *
@@ -81,8 +73,18 @@
                         <li>
                             <label for="Регион">Регион/область *</label>
                             <select name="" id="Регион">
-                                <option value="">Ташкент</option>
-                                <option value="">Ташкент2</option>
+                                <option value="">Andijon</option>
+                                <option value="">Buxoro</option>
+                                <option value="">Fargʻona</option>
+                                <option value="">Jizzax</option>
+                                <option value="">Namangan</option>
+                                <option value="">Navoiy</option>
+                                <option value="">Qashqadaryo</option>
+                                <option value="">Samarqand</option>
+                                <option value="">Sirdaryo</option>
+                                <option value="">Surxondaryo</option>
+                                <option value="">Xorazm</option>
+                                <option value="">Qoraqalpogʻiston</option>
                             </select>
                             <svg viewBox="0 0 15.5061 8.54834" xmlns="http://www.w3.org/2000/svg"
                                 xmlns:xlink="http://www.w3.org/1999/xlink" width="15.506104" height="8.548340"
