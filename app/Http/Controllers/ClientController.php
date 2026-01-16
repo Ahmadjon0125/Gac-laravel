@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Guarantee;
 use App\Models\GuaranteeForms;
+use App\Models\GuaranteeText;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -21,7 +22,9 @@ class ClientController extends Controller
             'additional_info' => 'nullable|string',
         ]);
 
-        GuaranteeForms::create($validated);
+        $data=GuaranteeForms::create($validated);
+
+        dd($data);
 
         return back()->with('success', 'Arizangiz muvaffaqiyatli yuborildi!');
     }
@@ -30,7 +33,7 @@ class ClientController extends Controller
     public static function client()
     {
         $guarantees = Guarantee::first();
-        // $guaranteeForms = GuaranteeForms::first();
-        return view('front.client', compact('guarantees',));
+        $guaranteeTexts = GuaranteeText::first();
+        return view('front.client', compact('guarantees', 'guaranteeTexts'));
     }
 }

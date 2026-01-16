@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\GuaranteeForms\Tables;
 
+use Dom\Text;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -14,11 +15,11 @@ class GuaranteeFormsTable
     {
         return $table
             ->columns([
-                TextColumn::make('company_name')->label('Kompaniya'),
+            TextColumn::make('company_name')->label('Kompaniya'),
+            TextColumn::make('address')->label('Manzil'),
             TextColumn::make('full_name')->label('F.I.O'),
             TextColumn::make('phone')->label('Telefon'),
             TextColumn::make('region')->label('Region'),
-            TextColumn::make('created_at')->label('Sana')->dateTime(),
             ])
             ->filters([
                 //

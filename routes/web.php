@@ -21,7 +21,7 @@ Route::group(
         Route::get('/', [IndexController::class, 'index' ]);
         Route::get('/about', [AboutController::class, 'about'])->name('aboutPage');
         Route::get('/client', [ClientController::class, 'client'])->name('clientPage');
-        Route::get('/clientForm', [ClientController::class, 'storeDealerApplication'])->name('clientFormPage');
+        Route::post('/clientForm', [ClientController::class, 'storeDealerApplication'])->name('clientFormPage');
         Route::get('/product', [ProductController::class, 'product'])->name('productPage');
         Route::get('/tecnology', [TecnologyController::class, 'tecnology'])->name('tecnologyPage');
         Route::get('/news', [NewsController::class, 'news'])->name('newsPage');

@@ -52,15 +52,7 @@
             <div class="client2">
                 <h2>Стать дилером</h2>
                 <p>
-                    Sed ut perspiciatis, unde omnis iste natus error sit
-                    voluptatem accusantium doloremque laudantium, totam
-                    rem aperiam eaque ipsa, quae ab illo inventore
-                    veritatis et quasi architecto beatae vitae dicta
-                    sunt, explicabo. Nemo enim ipsam voluptatem, quia
-                    voluptas sit, aspernatur aut odit aut fugit, sed
-                    quia consequuntur magni dolores eos, qui ratione
-                    voluptatem sequi nesciunt, neque porro quisquam est,
-                    qui dolorem ipsum.
+                    {!! $guaranteeTexts->{'text_' . $locale} !!}
                 </p>
                 <form action="{{ route('clientFormPage') }}" method="post" class="client2Form">
                     @csrf
@@ -68,23 +60,24 @@
                         <li>
                             <label for="Название компании">Название компании *
                             </label>
-                            <input type="text" placeholder="Название компании * " id="Название компании" />
+                            <input type="text" name="company_name" placeholder="Название компании * "
+                                id="Название компании" />
                         </li>
                         <li>
                             <label for="Регион">Регион/область *</label>
-                            <select name="" id="Регион">
-                                <option value="">Andijon</option>
-                                <option value="">Buxoro</option>
-                                <option value="">Fargʻona</option>
-                                <option value="">Jizzax</option>
-                                <option value="">Namangan</option>
-                                <option value="">Navoiy</option>
-                                <option value="">Qashqadaryo</option>
-                                <option value="">Samarqand</option>
-                                <option value="">Sirdaryo</option>
-                                <option value="">Surxondaryo</option>
-                                <option value="">Xorazm</option>
-                                <option value="">Qoraqalpogʻiston</option>
+                            <select name="region" id="Регион">
+                                <option value="Andijon">Andijon</option>
+                                <option value="Buxoro">Buxoro</option>
+                                <option value="Fargʻona">Fargʻona</option>
+                                <option value="Jizzax">Jizzax</option>
+                                <option value="Namangan">Namangan</option>
+                                <option value="Navoiy">Navoiy</option>
+                                <option value="Qashqadaryo">Qashqadaryo</option>
+                                <option value="Samarqand">Samarqand</option>
+                                <option value="Sirdaryo">Sirdaryo</option>
+                                <option value="Surxondaryo">Surxondaryo</option>
+                                <option value="Xorazm">Xorazm</option>
+                                <option value="Qoraqalpogʻiston">Qoraqalpogʻiston</option>
                             </select>
                             <svg viewBox="0 0 15.5061 8.54834" xmlns="http://www.w3.org/2000/svg"
                                 xmlns:xlink="http://www.w3.org/1999/xlink" width="15.506104" height="8.548340"
@@ -98,24 +91,25 @@
                         </li>
                         <li>
                             <label for="Адрес">Адрес *</label>
-                            <input type="text" id="Адрес" placeholder="Адрес *" />
+                            <input type="text" name="address" id="Адрес" placeholder="Адрес *" />
                         </li>
                         <li>
                             <label for="Количество">Количество сотрудников *</label>
-                            <input type="text" id="Количество" placeholder="Количество сотрудников *" />
+                            <input type="text" name="employee_count" id="Количество"
+                                placeholder="Количество сотрудников *" />
                         </li>
                         <li>
                             <label for="Контактное">Контактное лицо *</label>
-                            <input type="text" id="Контактное" placeholder="ФИО" />
+                            <input type="text" name="full_name" id="Контактное" placeholder="ФИО" />
                         </li>
                         <li>
                             <label for="contact">Контактный номер *</label>
-                            <input type="tel" id="contact" placeholder="+998 99 999 99 99" />
+                            <input type="tel" name="phone" id="contact" placeholder="+998 99 999 99 99" />
                         </li>
                     </ul>
                     <div>
                         <label for="textarea">Дополнительная информация</label>
-                        <textarea id="textarea" placeholder="Дополнительная информация" rows="5"></textarea>
+                        <textarea id="textarea" name="additional_info" placeholder="Дополнительная информация" rows="5"></textarea>
                     </div>
                     <button type="submit">
                         <div>
