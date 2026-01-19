@@ -6,6 +6,7 @@ use App\Models\AboutFour;
 use App\Models\AboutOne;
 use App\Models\AboutThree;
 use App\Models\AboutTwo;
+use App\Models\Infos;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -15,6 +16,7 @@ class AboutController extends Controller
       $aboutTwo = AboutTwo::first();
       $aboutThree = AboutThree::first();
       $aboutFour = AboutFour::first();
-    return view('front.about', compact('aboutOne','aboutTwo','aboutThree','aboutFour'));
+       $info = Infos::first();
+    return view('front.about', compact('aboutOne','aboutTwo','aboutThree','aboutFour','info'));
    }
 }

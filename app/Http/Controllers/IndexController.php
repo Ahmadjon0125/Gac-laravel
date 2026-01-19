@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Infos;
 use App\Models\Product;
 use App\Models\Slider;
 use Illuminate\Http\Request;
@@ -12,6 +13,7 @@ class IndexController extends Controller
 
         $sliders = Slider::all();
            $products = Product::all();
-        return view('front.index',compact('sliders','products'));
+            $info = Infos::first();
+        return view('front.index',compact('sliders','products','info'));
     }
 }

@@ -179,12 +179,12 @@
                     </div>
                     <div class="footer_top_3">
                         <h3>Телефон</h3>
-                        <a href="tel:+998935054505">+99 893 505 45 05</a>
+                        <a href="tel:{{ $info->phone }}">{{ $info->phone }}</a>
                         <h3>Электронная почта</h3>
-                        <a href="mailto:gac@info.com">gac@info.com</a>
+                        <a href="mailto:{{ $info->mail }}">{{ $info->mail }}</a>
                         <h3>Адрес</h3>
                         <p>
-                            Узбекистан, г. ТашкентУл. Темур Малик, дом 17а
+                            {{ $info->address }}
                         </p>
                     </div>
                 </div>

@@ -23,37 +23,39 @@
                         <ul>
                             <li>
                                 <h3>Телефон</h3>
-                                <a href="tel:+99 893 505 45 05"
-                                    >+99 893 505 45 05</a
+                                <a href="tel:{{ $info->phone }}"
+                                    >{{ $info->phone }}</a
                                 >
                             </li>
                             <li>
                                 <h3>Электронная почта</h3>
-                                <a href="mailto:gac@info.com">gac@info.com</a>
+                                <a href="mailto:{{ $info->mail }}">{{ $info->mail }}</a>
                             </li>
                             <li>
                                 <h3>Адрес</h3>
                                 <p>
-                                    Узбекистан, г. ТашкентУл. Темур Малик, дом
-                                    17а
+                                    {{ $info->address }}
                                 </p>
                             </li>
                             <li>
                                 <h3>Ориентиры</h3>
-                                <p>Ресторан Хон-Атлас, ТРЦ Чимган, Экобазар</p>
+                                <p>{{ $info->point }}</p>
                             </li>
                         </ul>
                         <div class="contactDiv">
                             <h2>Свяжитесь с нами</h2>
-                            <form action="" class="contact_form">
-                                <input type="text" placeholder="ФИО" />
+                            <form action="{{ route('feedback.store') }}" method="POST" class="contact_form">
+                                @csrf
+                                <input type="text" name="full_name" placeholder="ФИО" />
                                 <input
                                     type="tel"
                                     placeholder="Номер телефона"
+                                    name="phone"
                                 />
                                 <textarea
                                     placeholder="Комментарий"
                                     rows="7"
+                                    name="comment"
                                 ></textarea>
                                 <button
                                     class="btnMain contactBtn"
@@ -87,7 +89,7 @@
             <!-- CONST all last section -->
             <section class="map">
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2995.095335550496!2d69.35291769999999!3d41.3502815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef52b68c4277b%3A0x704a52cfbe784a9!2zU09TIC0g0YDQsNC30YDQsNCx0L7RgtC60LAg0YHQsNC50YLQvtCyINCyINGC0LDRiNC60LXQvdGC0LUsINGB0L7Qt9C00LDQvdC40LUg0YHQsNC50YLQvtCyINCyINGC0LDRiNC60LXQvdGC0LUsIHNlbyDQsiDRgtCw0YjQutC10L3RgtC1LCDRgdC-0LfQtNCw0L3QuNC1INGB0LDQudGC0L7QsiDQsiDRgtCw0YjQutC10L3RgtC1!5e0!3m2!1sen!2s!4v1766667305402!5m2!1sen!2s"
+                    src="{{ $info->map }}"
                     width="100%"
                     height="100%"
                     style="border: 0"
@@ -96,3 +98,9 @@
                 ></iframe>
             </section>
       @endsection
+
+
+
+
+
+      {{-- https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2995.095335550496!2d69.35291769999999!3d41.3502815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef52b68c4277b%3A0x704a52cfbe784a9!2zU09TIC0g0YDQsNC30YDQsNCx0L7RgtC60LAg0YHQsNC50YLQvtCyINCyINGC0LDRiNC60LXQvdGC0LUsINGB0L7Qt9C00LDQvdC40LUg0YHQsNC50YLQvtCyINCyINGC0LDRiNC60LXQvdGC0LUsIHNlbyDQsiDRgtCw0YjQutC10L3RgtC1LCDRgdC-0LfQtNCw0L3QuNC1INGB0LDQudGC0L7QsiDQsiDRgtCw0YjQutC10L3RgtC1!5e0!3m2!1sen!2s!4v1766667305402!5m2!1sen!2s --}}

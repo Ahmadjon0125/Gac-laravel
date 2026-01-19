@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\NewsController;
@@ -29,5 +30,7 @@ Route::group(
         Route::get('/partner', [PartnerController::class, 'partner'])->name('partnerPage');
         Route::get('/contact', [ContactController::class, 'contact'])->name('contactPage');
         Route::get('/product/{id}/{slug}', [ProductController::class, 'productIn'])->name('productInPage');
+        Route::get('/news/{id}/{slug}', [NewsController::class, 'newsIn'])->name('newsInPage');
+        Route::post('/feedback-store', [FeedbackController::class, 'store'])->name('feedback.store');
     }
 );

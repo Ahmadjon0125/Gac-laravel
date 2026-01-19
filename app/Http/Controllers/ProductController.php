@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Infos;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -10,7 +11,8 @@ class ProductController extends Controller
    public static function product()
    {
       $products = Product::all();
-      return view('front.product', compact('products'));
+       $info = Infos::first();
+      return view('front.product', compact('products','info'));
    }
 
    public function productIn($id, $slug)
@@ -29,6 +31,6 @@ class ProductController extends Controller
          ]);
       }
 
-      return view('front.productIn', compact('product'));
+      return view('front.productIn', compact('product','info'));
    }
 }

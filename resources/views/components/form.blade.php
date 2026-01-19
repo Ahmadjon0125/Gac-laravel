@@ -11,10 +11,11 @@
         <div class="container">
             <div class="formSection_in">
                 <h2>Свяжитесь с нами</h2>
-                <form action="" class="formSection_form">
-                    <input type="text" placeholder="ФИО" />
-                    <input type="tel" placeholder="Номер телефона" />
-                    <textarea placeholder="Комментарий" rows="5"></textarea>
+                <form action="{{ route('feedback.store') }}" class="formSection_form" method="post">
+                    @csrf
+                    <input type="text" name="full_name" placeholder="ФИО" />
+                    <input type="tel" name="phone" placeholder="Номер телефона" />
+                    <textarea placeholder="Комментарий" name="comment" rows="5"></textarea>
                     <button class="btnMain" type="submit">
                         <span>Отправить
                             <svg width="8" height="14" viewBox="0 0 8 14" fill="none"

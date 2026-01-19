@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@php
+    $locale= app()->getLocale()
+@endphp
+
 @section('content')
     <!-- hero section  -->
     <section class="product_hero"
@@ -18,102 +22,21 @@
         <div class="container">
             <h2>Последние новости и обновления</h2>
             <div class="lastNews_cards">
-                <a href="/newsIn.html">
-                    <img src="./img/car1.jpg" alt="" />
-                    <p>20.11.2025</p>
+                @foreach ($news as $new)
+                    
+               
+                <a href="{{ route('newsInPage', [
+                                        'id' => $new->id,
+                                        'slug' => $new->{'slug_' . $locale},
+                                    ]) }}">
+                    <img src="{{ asset('storage/' . $new->img) }}" alt="" />
+                    <p>{{ date('d.m.Y', strtotime($new->newsDate)) }}</p>
                     <h3>
-                        Lorem ipsum dolor sit amet, consectetur
-                        adipiscing
+                       {{ $new->{'title_' . $locale} }}
                     </h3>
                 </a>
-                <a href="/newsIn.html">
-                    <img src="./img/car2.jpg" alt="" />
-                    <p>20.11.2025</p>
-                    <h3>
-                        Lorem ipsum dolor sit amet, consectetur
-                        adipiscing
-                    </h3>
-                </a>
-                <a href="/newsIn.html">
-                    <img src="./img/car3.jpg" alt="" />
-                    <p>20.11.2025</p>
-                    <h3>
-                        Lorem ipsum dolor sit amet, consectetur
-                        adipiscing
-                    </h3>
-                </a>
-                <a href="/newsIn.html">
-                    <img src="./img/car1.jpg" alt="" />
-                    <p>20.11.2025</p>
-                    <h3>
-                        Lorem ipsum dolor sit amet, consectetur
-                        adipiscing
-                    </h3>
-                </a>
-                <a href="/newsIn.html">
-                    <img src="./img/car2.jpg" alt="" />
-                    <p>20.11.2025</p>
-                    <h3>
-                        Lorem ipsum dolor sit amet, consectetur
-                        adipiscing
-                    </h3>
-                </a>
-                <a href="/newsIn.html">
-                    <img src="./img/car3.jpg" alt="" />
-                    <p>20.11.2025</p>
-                    <h3>
-                        Lorem ipsum dolor sit amet, consectetur
-                        adipiscing
-                    </h3>
-                </a>
-                <a href="/newsIn.html">
-                    <img src="./img/car1.jpg" alt="" />
-                    <p>20.11.2025</p>
-                    <h3>
-                        Lorem ipsum dolor sit amet, consectetur
-                        adipiscing
-                    </h3>
-                </a>
-                <a href="/newsIn.html">
-                    <img src="./img/car2.jpg" alt="" />
-                    <p>20.11.2025</p>
-                    <h3>
-                        Lorem ipsum dolor sit amet, consectetur
-                        adipiscing
-                    </h3>
-                </a>
-                <a href="/newsIn.html">
-                    <img src="./img/car3.jpg" alt="" />
-                    <p>20.11.2025</p>
-                    <h3>
-                        Lorem ipsum dolor sit amet, consectetur
-                        adipiscing
-                    </h3>
-                </a>
-                <a href="/newsIn.html">
-                    <img src="./img/car1.jpg" alt="" />
-                    <p>20.11.2025</p>
-                    <h3>
-                        Lorem ipsum dolor sit amet, consectetur
-                        adipiscing
-                    </h3>
-                </a>
-                <a href="/newsIn.html">
-                    <img src="./img/car2.jpg" alt="" />
-                    <p>20.11.2025</p>
-                    <h3>
-                        Lorem ipsum dolor sit amet, consectetur
-                        adipiscing
-                    </h3>
-                </a>
-                <a href="/newsIn.html">
-                    <img src="./img/car3.jpg" alt="" />
-                    <p>20.11.2025</p>
-                    <h3>
-                        Lorem ipsum dolor sit amet, consectetur
-                        adipiscing
-                    </h3>
-                </a>
+ @endforeach
+
             </div>
             <div class="showDiv">
                 <a class="showMore"> Показать еще</a>

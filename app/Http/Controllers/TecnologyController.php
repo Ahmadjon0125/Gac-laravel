@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Infos;
 use App\Models\Tecno1;
 use App\Models\Tecno2;
 use App\Models\Tecno3;
@@ -19,6 +20,7 @@ class TecnologyController extends Controller
         $tecno4 = Tecno4::all();
         $tecno5 = Tecno5::first();
         $tecno6 = Tecno6::first();
-        return view('front.tecnology', compact('tecno1','tecno2','tecno3','tecno4', 'tecno5','tecno6'));
+         $info = Infos::first();
+        return view('front.tecnology', compact('tecno1','tecno2','tecno3','tecno4', 'tecno5','tecno6','info'));
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Guarantee;
 use App\Models\GuaranteeForms;
 use App\Models\GuaranteeText;
+use App\Models\Infos;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -34,6 +35,7 @@ class ClientController extends Controller
     {
         $guarantees = Guarantee::first();
         $guaranteeTexts = GuaranteeText::first();
-        return view('front.client', compact('guarantees', 'guaranteeTexts'));
+         $info = Infos::first();
+        return view('front.client', compact('guarantees', 'guaranteeTexts','info'));
     }
 }
