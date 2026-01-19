@@ -11,8 +11,8 @@ class ProductController extends Controller
    public static function product()
    {
       $products = Product::all();
-       $info = Infos::first();
-      return view('front.product', compact('products','info'));
+      $info = Infos::first();
+      return view('front.product', compact('products', 'info'));
    }
 
    public function productIn($id, $slug)
@@ -30,7 +30,7 @@ class ProductController extends Controller
             'slug' => $currentLocaleSlug
          ]);
       }
-
-      return view('front.productIn', compact('product','info'));
+      $info = Infos::first();
+      return view('front.productIn', compact('product', 'info'));
    }
 }

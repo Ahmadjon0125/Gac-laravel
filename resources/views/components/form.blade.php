@@ -10,14 +10,14 @@
                 ">
         <div class="container">
             <div class="formSection_in">
-                <h2>Свяжитесь с нами</h2>
+                <h2>{{ __('app.contactUs') }}</h2>
                 <form action="{{ route('feedback.store') }}" class="formSection_form" method="post">
                     @csrf
-                    <input type="text" name="full_name" placeholder="ФИО" />
-                    <input type="tel" name="phone" placeholder="Номер телефона" />
-                    <textarea placeholder="Комментарий" name="comment" rows="5"></textarea>
+                    <input type="text" name="full_name" placeholder="{{ __('app.fullName') }}" />
+                    <input type="tel" name="phone" placeholder="{{ __('app.phoneNumber') }}" />
+                    <textarea placeholder="{{ __('app.comment') }}" name="comment" rows="5"></textarea>
                     <button class="btnMain" type="submit">
-                        <span>Отправить
+                        <span>{{ __('app.send') }}
                             <svg width="8" height="14" viewBox="0 0 8 14" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path d="M0.750001 12.75L6.7751 6.75L0.75 0.75" stroke="white" stroke-width="1.5"

@@ -30,7 +30,7 @@
                         <div class="swiper_content">
                             <h2>{{ $slider->{'title_' . $locale} }}</h2>
                             <p>{!! $slider->{'text_' . $locale} !!}</p>
-                            <a href="{{ $slider->link }}" class="btnMain">Подробнее</a>
+                            <a href="{{ $slider->link }}" class="btnMain">{{ __('app.readMore') }}</a>
                         </div>
                     </div>
                 @endforeach
@@ -72,7 +72,7 @@
                                         'id' => $product->id,
                                         'slug' => $product->{'slug_' . $locale},
                                     ]) }}"
-                                        class="btnMain">Подробнее</a>
+                                        class="btnMain">{{ __('app.readMore') }}</a>
                                 </div>
                             @endforeach
                         </div>
@@ -88,7 +88,7 @@
                                         'id' => $product->id,
                                         'slug' => $product->{'slug_' . $locale},
                                     ]) }}"
-                                        class="btnMain">Подробнее</a>
+                                        class="btnMain">{{ __('app.readMore') }}</a>
                                 </div>
                             @endforeach
                         </div>
@@ -104,7 +104,7 @@
                                         'id' => $product->id,
                                         'slug' => $product->{'slug_' . $locale},
                                     ]) }}"
-                                        class="btnMain">Подробнее</a>
+                                        class="btnMain">{{ __('app.readMore') }}</a>
                                 </div>
                             @endforeach
                         </div>
@@ -120,7 +120,7 @@
                                         'id' => $product->id,
                                         'slug' => $product->{'slug_' . $locale},
                                     ]) }}"
-                                        class="btnMain">Подробнее</a>
+                                        class="btnMain">{{ __('app.readMore') }}</a>
                                 </div>
                             @endforeach
                         </div>
@@ -139,7 +139,7 @@
                         ipsam voluptatem, quia voluptas sit, aspernatur
                         aut odit aut fugit.
                     </p>
-                    <a href="" class="btnMain">Подробнее</a>
+                    <a href="" class="btnMain">{{ __('app.readMore') }}</a>
                 </div>
                 <div>
                     <img src="./img/car4.jpg" alt="" />
@@ -174,7 +174,7 @@
                         vel illum, qui dolorem eum fugiat, quo
                         voluptas nulla pariatur.
                     </p>
-                    <a href="" class="btnMain">Подробнее</a>
+                    <a href="" class="btnMain">{{ __('app.readMore') }}</a>
                 </div>
             </div>
         </div>
@@ -185,7 +185,7 @@
             <div class="lastNews_inner">
                 <div class="lastNews_top">
                     <h2>Последние новости и обновления</h2>
-                    <a href="/news.html" class="btnMain">
+                    <a href="{{ route('newsPage') }}" class="btnMain">
                         <span>
                             Все новости
                             <svg width="8" height="14" viewBox="0 0 8 14" fill="none"
@@ -197,30 +197,20 @@
                     </a>
                 </div>
                 <div class="lastNews_cards">
-                    <a href="/newsIn.html">
-                        <img src="./img/car1.jpg" alt="" />
-                        <p>20.11.2025</p>
-                        <h3>
-                            Lorem ipsum dolor sit amet, consectetur
-                            adipiscing
-                        </h3>
-                    </a>
-                    <a href="/newsIn.html">
-                        <img src="./img/car2.jpg" alt="" />
-                        <p>20.11.2025</p>
-                        <h3>
-                            Lorem ipsum dolor sit amet, consectetur
-                            adipiscing
-                        </h3>
-                    </a>
-                    <a href="/newsIn.html">
-                        <img src="./img/car3.jpg" alt="" />
-                        <p>20.11.2025</p>
-                        <h3>
-                            Lorem ipsum dolor sit amet, consectetur
-                            adipiscing
-                        </h3>
-                    </a>
+                    @foreach ($news as $new)
+                        <a
+                            href="{{ route('newsInPage', [
+                                'id' => $new->id,
+                                'slug' => $new->{'slug_' . $locale},
+                            ]) }}">
+                            <img src="{{ asset('storage/' . $new->img) }}" alt="" />
+                            <p>{{ date('d.m.Y', strtotime($new->newsDate)) }}</p>
+                            <h3>
+                                {{ $new->{'title_' . $locale} }}
+                            </h3>
+                        </a>
+                    @endforeach
+
                 </div>
             </div>
         </div>

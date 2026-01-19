@@ -103,7 +103,7 @@
             <div class="footer_in">
                 <div class="footer_top">
                     <div>
-                        <h2>Карта сайта</h2>
+                        <h2>{{ __('app.siteMap') }}</h2>
                         <ul>
                             <li><a href="{{ route('aboutPage') }}">{{ __('app.about') }}</a></li>
                             <li><a href="{{ route('productPage') }}">{{ __('app.products') }}</a></li>
@@ -178,11 +178,11 @@
                         </div>
                     </div>
                     <div class="footer_top_3">
-                        <h3>Телефон</h3>
+                        <h3>{{ __('app.phone') }}</h3>
                         <a href="tel:{{ $info->phone }}">{{ $info->phone }}</a>
-                        <h3>Электронная почта</h3>
+                        <h3>{{ __('app.email') }}</h3>
                         <a href="mailto:{{ $info->mail }}">{{ $info->mail }}</a>
-                        <h3>Адрес</h3>
+                        <h3>{{ __('app.address') }}</h3>
                         <p>
                             {{ $info->address }}
                         </p>
@@ -194,8 +194,8 @@
         <div class="footer_bottom">
             <div class="container">
                 <div class="footer_bottom_in">
-                    <p>«GAC» Все права защищены</p>
-                    <p>© Copyright 2025 - Web developed by SOS Group</p>
+                    <p>{{ __('app.allRight') }}</p>
+                    <p>{{ __('app.developed') }}</p>
                 </div>
             </div>
         </div>
