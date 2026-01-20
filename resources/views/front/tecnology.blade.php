@@ -13,7 +13,7 @@
                 ">
         <div class="container">
             <div class="tecnoIn_hero">
-                <h2>Технологии</h2>
+                <h2>{{ __('app.tecnology') }}</h2>
                 <div class="tecnoIcons">
                     @foreach ($tecno1 as $tecno)
                         <div>
@@ -58,16 +58,16 @@
                 </p>
                 <ul>
                     <li>
-                        <h3><span>{{ $tecno3->speed }}</span>км/ч</h3>
-                        <p>Макс. скорость</p>
+                        <h3><span>{{ $tecno3->speed }}</span>{{ __('app.kph') }}</h3>
+                        <p>{{ __('app.maxspeed') }}</p>
                     </li>
                     <li>
-                        <h3><span>{{ $tecno3->time }}</span>сек</h3>
-                        <p>Ускорение 0-100 (многодвигательный)</p>
+                        <h3><span>{{ $tecno3->time }}</span>{{ __('app.sec') }}</h3>
+                        <p>{{ __('app.accelaration') }}</p>
                     </li>
                     <li>
-                        <h3><span>{{ $tecno3->timeOne }}</span>сек</h3>
-                        <p>Ускорение 0-100 (один двигатель)</p>
+                        <h3><span>{{ $tecno3->timeOne }}</span>{{ __('app.sec') }}</h3>
+                        <p>{{ __('app.single') }}</p>
                     </li>
                 </ul>
             </div>
@@ -81,7 +81,7 @@
                 ">
         <div class="container">
             <div>
-                <h2>Высококлассная электроплатформа</h2>
+                <h2>{{ __('app.ev') }}</h2>
                 <ul class="tecno5List">
                     @foreach ($tecno4 as $tecno)
                         <li>

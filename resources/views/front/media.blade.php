@@ -11,7 +11,7 @@
                 ">
         <div class="container">
             <div>
-                <h2>Фото и видео</h2>
+                <h2>{{ __('app.photoVideo') }}</h2>
             </div>
         </div>
         <!-- client2  -->
@@ -22,10 +22,10 @@
             <div class="modelTab_inner mediaTab">
                 <div class="tabs-nav">
                     <a class="tab-button active" data-tab="photo">
-                        Фото
+                        {{ __('app.photo') }}
                     </a>
                     <span></span>
-                    <a class="tab-button" data-tab="video">Видео</a>
+                    <a class="tab-button" data-tab="video">{{ __('app.video') }}</a>
                 </div>
 
                 <div class="tabs-content-wrapper">

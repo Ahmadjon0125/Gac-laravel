@@ -12,7 +12,7 @@
                 ">
         <div class="container">
             <div>
-                <h2>Для клиентов</h2>
+                <h2>{{ __('app.forClients') }}</h2>
             </div>
         </div>
         <!-- client2  -->
@@ -21,7 +21,7 @@
     <section>
         <div class="container">
             <div class="client1">
-                <h2>Гарантия</h2>
+                <h2>{{ __('app.guarantee') }}</h2>
                 <p>
                     {!! $guarantees->{'text_' . $locale} !!}
                 </p>
@@ -50,7 +50,7 @@
     <section>
         <div class="container">
             <div class="client2">
-                <h2>Стать дилером</h2>
+                <h2>{{ __('app.dealer') }}</h2>
                 <p>
                     {!! $guaranteeTexts->{'text_' . $locale} !!}
                 </p>
@@ -58,13 +58,13 @@
                     @csrf
                     <ul>
                         <li>
-                            <label for="Название компании">Название компании *
+                            <label for="Название компании">{{ __('app.companyName') }} *
                             </label>
-                            <input type="text" name="company_name" placeholder="Название компании * "
+                            <input type="text" name="company_name" placeholder="{{ __('app.companyName') }} * "
                                 id="Название компании" />
                         </li>
                         <li>
-                            <label for="Регион">Регион/область *</label>
+                            <label for="Регион">{{ __('app.area') }} *</label>
                             <select name="region" id="Регион">
                                 <option value="Andijon">Andijon</option>
                                 <option value="Buxoro">Buxoro</option>
@@ -90,30 +90,30 @@
                             </svg>
                         </li>
                         <li>
-                            <label for="Адрес">Адрес *</label>
-                            <input type="text" name="address" id="Адрес" placeholder="Адрес *" />
+                            <label for="Адрес">{{ __('app.address') }} *</label>
+                            <input type="text" name="address" id="Адрес" placeholder="{{ __('app.address') }} *" />
                         </li>
                         <li>
-                            <label for="Количество">Количество сотрудников *</label>
+                            <label for="Количество">{{ __('app.headCount') }} *</label>
                             <input type="text" name="employee_count" id="Количество"
-                                placeholder="Количество сотрудников *" />
+                                placeholder="{{ __('app.headCount') }} *" />
                         </li>
                         <li>
-                            <label for="Контактное">Контактное лицо *</label>
-                            <input type="text" name="full_name" id="Контактное" placeholder="ФИО" />
+                            <label for="Контактное">{{ __('app.poc') }} *</label>
+                            <input type="text" name="full_name" id="Контактное" placeholder="{{ __('app.fullName') }}" />
                         </li>
                         <li>
-                            <label for="contact">Контактный номер *</label>
+                            <label for="contact">{{ __('app.contactNumber') }} *</label>
                             <input type="tel" name="phone" id="contact" placeholder="+998 99 999 99 99" />
                         </li>
                     </ul>
                     <div>
-                        <label for="textarea">Дополнительная информация</label>
-                        <textarea id="textarea" name="additional_info" placeholder="Дополнительная информация" rows="5"></textarea>
+                        <label for="textarea">{{ __('app.addInfo') }}</label>
+                        <textarea id="textarea" name="additional_info" placeholder="{{ __('app.addInfo') }}" rows="5"></textarea>
                     </div>
                     <button type="submit">
                         <div>
-                            <span> Отправить</span>
+                            <span> {{ __('app.send') }}</span>
                             <svg width="8" height="14" viewBox="0 0 8 14" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path d="M0.750001 12.75L6.75 6.75L0.75 0.75" stroke="#191919" stroke-width="1.5"

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @php
-    $locale= app()->getLocale()
+    $locale = app()->getLocale();
 @endphp
 
 @section('content')
@@ -12,7 +12,7 @@
                 ">
         <div class="container">
             <div>
-                <h2>Новости</h2>
+                <h2>{{ __('app.news') }}</h2>
             </div>
         </div>
         <!-- client2  -->
@@ -20,26 +20,25 @@
 
     <section class="news">
         <div class="container">
-            <h2>Последние новости и обновления</h2>
+            <h2>{{ __('app.latest') }}</h2>
             <div class="lastNews_cards">
                 @foreach ($news as $new)
-                    
-               
-                <a href="{{ route('newsInPage', [
-                                        'id' => $new->id,
-                                        'slug' => $new->{'slug_' . $locale},
-                                    ]) }}">
-                    <img src="{{ asset('storage/' . $new->img) }}" alt="" />
-                    <p>{{ date('d.m.Y', strtotime($new->newsDate)) }}</p>
-                    <h3>
-                       {{ $new->{'title_' . $locale} }}
-                    </h3>
-                </a>
- @endforeach
+                    <a
+                        href="{{ route('newsInPage', [
+                            'id' => $new->id,
+                            'slug' => $new->{'slug_' . $locale},
+                        ]) }}">
+                        <img src="{{ asset('storage/' . $new->img) }}" alt="" />
+                        <p>{{ date('d.m.Y', strtotime($new->newsDate)) }}</p>
+                        <h3>
+                            {{ $new->{'title_' . $locale} }}
+                        </h3>
+                    </a>
+                @endforeach
 
             </div>
             <div class="showDiv">
-                <a class="showMore"> Показать еще</a>
+                <a class="showMore"> {{ __('app.showMore') }}</a>
             </div>
         </div>
     </section>

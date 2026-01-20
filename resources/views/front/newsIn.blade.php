@@ -15,7 +15,7 @@
             >
                 <div class="container">
                     <div>
-                        <h2>Новости</h2>
+                        <h2>{{ __('app.news') }}</h2>
                     </div>
                 </div>
                 <!-- client2  -->

@@ -11,7 +11,7 @@
                 ">
         <div class="container">
             <div>
-                <h2>Партнеры</h2>
+                <h2>{{ __('app.partner') }}</h2>
             </div>
         </div>
         <!-- client2  -->
@@ -36,7 +36,7 @@
                 </ul>
                 <div>
 
-                    <a href="">Стать партнером</a>
+                    <a href="">{{ __('app.becomePartner') }}</a>
                 </div>
             </div>
         </div>

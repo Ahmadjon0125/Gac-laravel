@@ -47,11 +47,11 @@
     <section class="modelTab">
         <div class="container">
             <div class="modelTab_inner">
-                <h2>Модельный ряд</h2>
+                <h2>{{ __('app.range') }}</h2>
 
                 <div class="tabs-nav">
                     <a class="tab-button active" data-tab="all">
-                        BCE
+                        {{ __('app.all') }}
                     </a>
                     <span></span>
                     <a class="tab-button" data-tab="suv">SUV</a>
@@ -129,15 +129,9 @@
             </div>
             <div class="modelTab_bottom">
                 <div>
-                    <h3>Ключевые технологические преимущества</h3>
+                    <h3>{{ $advantages->{'title_' . $locale} }}</h3>
                     <p>
-                        Sed ut perspiciatis, unde omnis iste natus error
-                        sit voluptatem accusantium doloremque
-                        laudantium, totam rem aperiam eaque ipsa, quae
-                        ab illo inventore veritatis et quasi architecto
-                        beatae vitae dicta sunt, explicabo. Nemo enim
-                        ipsam voluptatem, quia voluptas sit, aspernatur
-                        aut odit aut fugit.
+                        {!! $advantages->{'text_' . $locale} !!}
                     </p>
                     <a href="" class="btnMain">{{ __('app.readMore') }}</a>
                 </div>
@@ -163,16 +157,9 @@
         <div class="container">
             <div class="promotion_inner">
                 <div>
-                    <h2>Акции и специальные предложения</h2>
+                    <h2>{{ $offer->{'title_' . $locale} }}</h2>
                     <p>
-                        Ut enim ad minima veniam, quis nostrum
-                        exercitationem ullam corporis
-                        suscipit laboriosam, nisi ut aliquid ex ea
-                        commodi consequatur? Quis autem vel eum iure
-                        reprehenderit, qui in ea voluptate velit
-                        esse, quam nihil molestiae consequatur,
-                        vel illum, qui dolorem eum fugiat, quo
-                        voluptas nulla pariatur.
+                        {!! $offer->{'text_' . $locale} !!}
                     </p>
                     <a href="" class="btnMain">{{ __('app.readMore') }}</a>
                 </div>
@@ -184,10 +171,10 @@
         <div class="container">
             <div class="lastNews_inner">
                 <div class="lastNews_top">
-                    <h2>Последние новости и обновления</h2>
+                    <h2>{{ __('app.latest') }}</h2>
                     <a href="{{ route('newsPage') }}" class="btnMain">
                         <span>
-                            Все новости
+                            {{ __('app.allNews') }}
                             <svg width="8" height="14" viewBox="0 0 8 14" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path d="M0.750001 12.75L6.7751 6.75L0.75 0.75" stroke="white" stroke-width="1.5"

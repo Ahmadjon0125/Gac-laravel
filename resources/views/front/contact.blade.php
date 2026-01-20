@@ -11,7 +11,7 @@
             >
                 <div class="container">
                     <div>
-                        <h2>Контакты</h2>
+                        <h2>{{ __('app.contact') }}</h2>
                     </div>
                 </div>
                 <!-- client2  -->
@@ -22,38 +22,38 @@
                     <div class="contact">
                         <ul>
                             <li>
-                                <h3>Телефон</h3>
+                                <h3>{{ __('app.phone') }}</h3>
                                 <a href="tel:{{ $info->phone }}"
                                     >{{ $info->phone }}</a
                                 >
                             </li>
                             <li>
-                                <h3>Электронная почта</h3>
+                                <h3>{{ __('app.email') }}</h3>
                                 <a href="mailto:{{ $info->mail }}">{{ $info->mail }}</a>
                             </li>
                             <li>
-                                <h3>Адрес</h3>
+                                <h3>{{ __('app.address') }}</h3>
                                 <p>
                                     {{ $info->address }}
                                 </p>
                             </li>
                             <li>
-                                <h3>Ориентиры</h3>
+                                <h3>{{ __('app.point') }}</h3>
                                 <p>{{ $info->point }}</p>
                             </li>
                         </ul>
                         <div class="contactDiv">
-                            <h2>Свяжитесь с нами</h2>
+                            <h2>{{ __('app.contactUs') }}</h2>
                             <form action="{{ route('feedback.store') }}" method="POST" class="contact_form">
                                 @csrf
-                                <input type="text" name="full_name" placeholder="ФИО" />
+                                <input type="text" name="full_name" placeholder="{{ __('app.fullName') }}" />
                                 <input
                                     type="tel"
-                                    placeholder="Номер телефона"
+                                    placeholder="{{ __('app.contactNumber') }}"
                                     name="phone"
                                 />
                                 <textarea
-                                    placeholder="Комментарий"
+                                    placeholder="{{ __('app.comment') }}"
                                     rows="7"
                                     name="comment"
                                 ></textarea>
@@ -62,7 +62,7 @@
                                     type="submit"
                                 >
                                     <span
-                                        >Отправить
+                                        >{{ __('app.send') }}
                                         <svg
                                             width="8"
                                             height="14"
@@ -99,8 +99,3 @@
             </section>
       @endsection
 
-
-
-
-
-      {{-- https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2995.095335550496!2d69.35291769999999!3d41.3502815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef52b68c4277b%3A0x704a52cfbe784a9!2zU09TIC0g0YDQsNC30YDQsNCx0L7RgtC60LAg0YHQsNC50YLQvtCyINCyINGC0LDRiNC60LXQvdGC0LUsINGB0L7Qt9C00LDQvdC40LUg0YHQsNC50YLQvtCyINCyINGC0LDRiNC60LXQvdGC0LUsIHNlbyDQsiDRgtCw0YjQutC10L3RgtC1LCDRgdC-0LfQtNCw0L3QuNC1INGB0LDQudGC0L7QsiDQsiDRgtCw0YjQutC10L3RgtC1!5e0!3m2!1sen!2s!4v1766667305402!5m2!1sen!2s --}}

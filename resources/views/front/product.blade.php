@@ -9,7 +9,7 @@
     <section class="product_hero" style="background: url('{{ asset('img/productBg.jpg') }}') center / cover no-repeat;">
         <div class="container">
             <div>
-                <h2>Продукты</h2>
+                <h2>{{ __('app.products') }}</h2>
             </div>
         </div>
     </section>
@@ -18,11 +18,11 @@
     <section class="modelTab">
         <div class="container">
             <div class="modelTab_inner">
-                <h2>Модельный ряд</h2>
+                <h2>{{ __('app.range') }}</h2>
 
                 <div class="tabs-nav">
                     <a class="tab-button active" data-tab="all">
-                        BCE
+                        {{ __('app.all') }}
                     </a>
                     <span></span>
                     <a class="tab-button" data-tab="suv">SUV</a>
@@ -43,7 +43,7 @@
                                         'id' => $product->id,
                                         'slug' => $product->{'slug_' . $locale},
                                     ]) }}"
-                                        class="btnMain">Подробнее</a>
+                                        class="btnMain">{{ __('app.readMore') }}</a>
                                 </div>
                             @endforeach
                         </div>
@@ -59,7 +59,7 @@
                                         'id' => $product->id,
                                         'slug' => $product->{'slug_' . $locale},
                                     ]) }}"
-                                        class="btnMain">Подробнее</a>
+                                        class="btnMain">{{ __('app.readMore') }}</a>
                                 </div>
                             @endforeach
                         </div>
@@ -75,7 +75,7 @@
                                         'id' => $product->id,
                                         'slug' => $product->{'slug_' . $locale},
                                     ]) }}"
-                                        class="btnMain">Подробнее</a>
+                                        class="btnMain">{{ __('app.readMore') }}</a>
                                 </div>
                             @endforeach
                         </div>
@@ -91,7 +91,7 @@
                                         'id' => $product->id,
                                         'slug' => $product->{'slug_' . $locale},
                                     ]) }}"
-                                        class="btnMain">Подробнее</a>
+                                        class="btnMain">{{ __('app.readMore') }}</a>
                                 </div>
                             @endforeach
                         </div>
