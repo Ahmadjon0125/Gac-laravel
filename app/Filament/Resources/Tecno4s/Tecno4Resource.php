@@ -17,8 +17,9 @@ use Filament\Tables\Table;
 class Tecno4Resource extends Resource
 {
     protected static ?string $model = Tecno4::class;
+       protected static ?string $navigationLabel = 'Tecno ElectroPlatform'; 
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+     protected static string|BackedEnum|null $navigationIcon = Heroicon::Cog6Tooth;
 
     public static function form(Schema $schema): Schema
     {

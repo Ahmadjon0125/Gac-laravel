@@ -17,8 +17,9 @@ use Filament\Tables\Table;
 class AboutOneResource extends Resource
 {
     protected static ?string $model = AboutOne::class;
+    protected static ?string $navigationLabel = 'About Hero'; 
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::Newspaper;
 
     public static function form(Schema $schema): Schema
     {

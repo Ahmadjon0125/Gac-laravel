@@ -18,7 +18,7 @@ class AboutThreeResource extends Resource
 {
     protected static ?string $model = AboutThree::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+ protected static string|BackedEnum|null $navigationIcon = Heroicon::Newspaper;
 
     public static function form(Schema $schema): Schema
     {

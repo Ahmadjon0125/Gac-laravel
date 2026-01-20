@@ -18,7 +18,7 @@ class GuaranteeResource extends Resource
 {
     protected static ?string $model = Guarantee::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+   protected static string|BackedEnum|null $navigationIcon = Heroicon::QuestionMarkCircle;
 
     public static function form(Schema $schema): Schema
     {
