@@ -28,9 +28,12 @@
 
 
                         <div class="swiper_content">
-                            <h2>{{ $slider->{'title_' . $locale} }}</h2>
-                            <p>{!! $slider->{'text_' . $locale} !!}</p>
-                            <a href="{{ $slider->link }}" class="btnMain">{{ __('app.readMore') }}</a>
+                            <div class="container">
+
+                                <h2>{{ $slider->{'title_' . $locale} }}</h2>
+                                <p>{!! $slider->{'text_' . $locale} !!}</p>
+                                <a href="{{ $slider->link }}" class="btnMain">{{ __('app.readMore') }}</a>
+                            </div>
                         </div>
                     </div>
                 @endforeach

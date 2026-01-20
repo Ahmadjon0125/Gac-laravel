@@ -12,7 +12,7 @@ class InfosForm
         return $schema
             ->components([
                 TextInput::make('phone')->tel(),
-                TextInput::make('mail'),
+                TextInput::make('mail')->email(),
                 TextInput::make('address'),
                 TextInput::make('point'),
                 TextInput::make('map'),
